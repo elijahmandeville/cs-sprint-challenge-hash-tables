@@ -1,25 +1,22 @@
 # Your code here
 
 
-
 def finder(files, queries):
     """
     YOUR CODE HERE
     """
     # Your code here
 
-    return result
+    table = dict()
+    answer = []
 
+    for el in files:
+        if el not in table:
+            table[el] = el.split("/")
 
-if __name__ == "__main__":
-    files = [
-        '/bin/foo',
-        '/bin/bar',
-        '/usr/bin/baz'
-    ]
-    queries = [
-        "foo",
-        "qux",
-        "baz"
-    ]
-    print(finder(files, queries))
+    for k, v in table.items():
+        for el in queries:
+            if el == v[-1]:
+                answer.append(k)
+
+    return answer
